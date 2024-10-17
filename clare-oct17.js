@@ -61,33 +61,48 @@ function isAnagram(targetWord, word) {
   return targetWord === word;
 }
 
-function anagrams(word, wordArray) {
-  let anagramsArray = [];
+// function anagrams(word, wordArray) {
+//   let anagramsArray = [];
 
-  let sortedTargetWord = word.toLowerCase().split("").sort().join("");
-  let sortedWordArray = wordArray.map((word) => {
-    return word.toLowerCase().split("").sort().join("");
-  });
+//   let sortedTargetWord = word.toLowerCase().split("").sort().join("");
+//   let sortedWordArray = wordArray.map((word) => {
+//     return word.toLowerCase().split("").sort().join("");
+//   });
 
-  for (let idx = 0; idx < sortedWordArray.length; idx++) {
-    if (isAnagram(sortedTargetWord, sortedWordArray[idx])) {
-      anagramsArray.push(wordArray[idx]);
-    }
-  }
-  return anagramsArray;
+//   for (let idx = 0; idx < sortedWordArray.length; idx++) {
+//     if (isAnagram(sortedTargetWord, sortedWordArray[idx])) {
+//       anagramsArray.push(wordArray[idx]);
+//     }
+//   }
+//   return anagramsArray;
+// }
+
+// function anagrams(word, arr) {
+//   const sortedWord = word.split("").sort().join("");
+
+//   return arr.filter(
+//     (w) => sortedWord === w.toLowerCase().split("").sort().join("")
+//   );
+// }
+
+function anagrams(word, array) {
+  let sortedWord = word.split("").sort().join("");
+
+  return array.filter(
+    (el) => sortedWord === el.toLowerCase().split("").sort().join("")
+  );
 }
-
 // // JavaScript test cases
 console.log(anagrams("abba", ["aabb", "abcd", "bbaa", "dada"]));
 // ['aabb', 'bbaa']
 
-console.log(anagrams("racer", ["crazer", "carer", "racar", "caers", "racer"]));
-// ['carer', 'racer']
+// console.log(anagrams("racer", ["crazer", "carer", "racar", "caers", "racer"]));
+// // ['carer', 'racer']
 
-console.log(anagrams("racer", ["crazer", "carer", "racar", "caers", "Racer"]));
-// ["carer", "Racer"];
+// console.log(anagrams("racer", ["crazer", "carer", "racar", "caers", "Racer"]));
+// // ["carer", "Racer"];
 
-console.log(anagrams("laser", ["lazing", "lazy", "lacer"]));
-// [];
+// console.log(anagrams("laser", ["lazing", "lazy", "lacer"]));
+// // [];
 
 // console.log(isAnagram("racer", "Racer"));
